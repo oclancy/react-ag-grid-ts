@@ -1,0 +1,12 @@
+{
+  "name": "react-ag-grid-ts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Oliver Clancy <oclancy@gmail.com>",
+  "license": "MIT",
+  "private": "true",
+  "workspaces": [
+    "ui",
+    "backend"
+  ]
+}
