@@ -1,8 +1,8 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { Grid } from "./Grid";
 import { Container, Row, Col } from "react-bootstrap";
 
-export function Layout() {
+export function Layout(props: { children: ReactNode }) {
   return (
     <Container fluid>
       <Row>
@@ -17,6 +17,7 @@ export function Layout() {
           <Grid />
         </Col>
       </Row>
+      <Row>{props.children}</Row>
     </Container>
   );
 }

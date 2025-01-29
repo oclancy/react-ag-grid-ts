@@ -1,3 +1,5 @@
+import https from "https";
+import fs, { PathOrFileDescriptor } from "fs";
 import express, { Request, Response } from "express";
 import dotenv from "dotenv";
 
@@ -6,12 +8,20 @@ dotenv.config();
 const app = express();
 
 const PORT = process.env.PORT;
+const certPath = process.env.CERTPATH as PathOrFileDescriptor;
+const certPass = process.env.CERTSPWD;
 
 app.get("/", (request: Request, response: Response) => {
   response.status(200).send("Hello World");
 });
 
-app
+const options = {
+  pfx: fs.readFileSync(certPath),
+  passphrase: certPass,
+};
+
+https
+  .createServer(options, app)
   .listen(PORT, () => {
     console.log("Server running at PORT: ", PORT);
   })
