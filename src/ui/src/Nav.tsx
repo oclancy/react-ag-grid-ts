@@ -15,7 +15,7 @@ const Nav = () => {
               </h1>
               <ul className="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
                 <li>
-                  <a className="hover:text-blue-800" href="/">
+                  <a className="hover:text-blue-800" href="/home">
                     Home
                   </a>
                 </li>

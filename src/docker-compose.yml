@@ -51,5 +51,14 @@ services:
     ports:
       - 5432:5432
 
+  # test:
+  #   image: alpine:latest
+  #   entrypoint: /tmp/test/launch.sh
+  #   command: "hello"
+  #   environment:
+  #     - name=value
+  #   volumes:
+  #     - C:\Users\olive\source\repos\react-ag-grid-ts\src\test:/tmp/test/
+
 volumes:
   pgdata:
