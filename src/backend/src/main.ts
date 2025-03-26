@@ -3,7 +3,7 @@ import fs, { PathOrFileDescriptor } from "fs";
 import express, { Request, Response } from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import { auth } from "./auth";
+import { auth } from "./auth.js";
 
 // configures dotenv to work in your application
 dotenv.config();

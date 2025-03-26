@@ -6,7 +6,7 @@ export const auth = jwt({
         cache: true,
         rateLimit: true,
         jwksRequestsPerMinute: 5,
-        jwksUri: `http://localhost:8080/realms/react-ag-grid-ts/.well-known/jwks.json`,
+        jwksUri: `http://${process.env.AUTH_ENDPOINT}/realms/react-ag-grid-ts/.well-known/jwks.json`,
     }),
     // Validate the audience and the issuer.
     audience: "urn:react-api-aud",

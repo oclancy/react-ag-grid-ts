@@ -15,6 +15,8 @@ services:
       - KEYCLOAK_URL=http://keycloak:8080/auth
     depends_on:
       - keycloak
+    volumes:
+      -
 
   keycloak:
     image: quay.io/keycloak/keycloak:26.0.8

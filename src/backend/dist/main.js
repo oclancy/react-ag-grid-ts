@@ -3,30 +3,17 @@ import fs from "fs";
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-//import { auth } from "./auth";
-import { expressjwt } from "express-jwt";
-import { expressJwtSecret } from "jwks-rsa";
+import { auth } from "./auth.js";
 // configures dotenv to work in your application
 dotenv.config();
 const app = express();
 app.use(cors());
-const auth = expressjwt({
-    // Dynamically provide a signing key based on the kid in the header and the signing keys provided by the JWKS endpoint.
-    secret: expressJwtSecret({
-        cache: true,
-        rateLimit: true,
-        jwksRequestsPerMinute: 5,
-        jwksUri: `http://localhost:8080/realms/react-ag-grid-ts/.well-known/jwks.json`,
-    }),
-    // Validate the audience and the issuer.
-    audience: "urn:react-api-aud",
-    issuer: "http://localhost:8080/",
-    algorithms: ["RS256"],
-});
 const PORT = process.env.PORT;
 const certPath = process.env.CERTPATH;
 const certPass = process.env.CERTSPWD;
-app.use((req, res, next) => { });
+app.use((req, res, next) => {
+    next();
+});
 app.get("/", auth, (request, response) => {
     response.status(200).send("Hello World");
 });
