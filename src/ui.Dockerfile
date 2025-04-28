@@ -14,5 +14,6 @@ RUN yarn workspace ui build
 # Production Stage
 FROM nginx:stable-alpine AS production
 COPY --from=BUILD /app/ui/build /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/nginx.conf
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
